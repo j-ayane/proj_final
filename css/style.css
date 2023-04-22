@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nanum Brush Script', cursive;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    color: white;
+}
+
+.header {
+    background-color: rgb(35, 35, 35);
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(20px, 5vw, 55px);
+}
+
+.header img {
+    width: 8%;
+}
+
+.bttn a {
+    text-decoration: none;
+}
+
+.cred {
+    font-family: 'Century Gothic', Courier, monospace;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 100px;
+}
+
+/* ------ IDs ------ */
+#forca {
+    margin: 50px;
+    width: 20%;
+}
+
+#inicio {
+    background-color: rgb(35, 35, 35);
+    margin: 0px auto;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    width: 300px;
+    border-radius: 35px;
+    padding: 5px;
+}
+
+#inicio:hover {
+    box-shadow: 5px 8px 8px rgb(95, 95, 95);
+}
+
+/*  CSS aparelhos menores  */
+
+@media (max-width: 480px) {
+
+    .header {
+        height: 200px;
+    }
+
+    .header img {
+        width: 15%
+    }
+
+    /* ------ IDs ------ */
+    #forca {
+        margin: 50px;
+        width: 45%;
+    }
+
+    #inicio {
+        width: 200px; 
+        font-size: 15px;
+    }
+}
