@@ -5,26 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Forca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/forca.css">
 </head>
 <body>
 
-    <div class="container">
+    <div class="ccontainer row">
         <header>
             <img src="imgs/forca_1.png" alt="forca" id="forca-img">
             <h1>Jogo da Forca</h1>
             <img src="imgs/stick.png" alt="stickman" id="stick">
         </header>
-        <div class="div1">
+        <div class="div1 col">
             <div id="forca">
-                <img src="imgs/4 Sem Título_20230422141328.png" alt="forca">
+                <br>
             </div>
             <div id="erros">
                 <p>Letras Usadas</p>
 
             </div>
         </div>
-        <div class="div2">
+        <div class="div2 col">
+            <div id="categoria">
+                categoria
+            </div>
+            <div id="palavra">
+                <div class="letras">E</div>
+                <div class="letras">D</div>
+                <div class="letras">C</div>
+                <div class="letras">B</div>
+                <div class="letras">A</div>
+            </div>
+            <div id="teclado">
             <div class="teclas">
                 <button type="button" id="lQ">Q</button>
                 <button type="button" id="lE">E</button>
@@ -44,7 +56,8 @@
                 <button type="button" id="lF">F</button>
                 <button type="button" id="lG">G</button>
                 <button type="button" id="lH">H</button>
-                <button type="button" id="lJ">K</button>
+                <button type="button" id="lJ">J</button>
+                <button type="button" id="lK">K</button>
                 <button type="button" id="lL">L</button>
             </div>
             <div class="teclas">
@@ -56,6 +69,7 @@
                 <button type="button" id="lN">N</button>
                 <button type="button" id="lM">M</button>
             </div>
+        </div>
         </div>
     </div>
     
