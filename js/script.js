@@ -2,6 +2,7 @@
 let listaDinamica = [];
 let palavraCategoria;
 let palavraSorteada;
+let tentativas = 6;
 
 
 const palavras = [
@@ -107,6 +108,8 @@ const palavras = [
     },
 ]
 
+criarPalavraSecreta()
+palavraTela()
 
 function criarPalavraSecreta() {
     const indexPalavra = parseInt(Math.random() * palavras.length)
@@ -137,8 +140,30 @@ function palavraTela() {
 }
 
 function verificaLetraEscolhida(letra) {
-
+    if(tentativas > 0) {
+        mudarStyleLetra("l" + letra) 
+        comparaListas(letra)
+    }
 }
 
-criarPalavraSecreta()
-palavraTela()
+function mudarStyleLetra(tecla) {
+    document.getElementById(tecla).style.background = "#757575"
+    document.getElementById(tecla).style.color = "#ffffff"
+}
+
+function comparaListas(letra) {
+    const posi = palavraSorteada.indexOf(letra)
+    if (posi < 0) {
+        tentativas--
+        
+    }
+    else {
+        for(i = 0; i < palavraSorteada.length; i++){
+            if(palavraSorteada[i] == letra){
+                listaDinamica[i] = letra
+            }
+        }
+    }
+}
+
+
