@@ -140,10 +140,12 @@ function palavraTela() {
 }
 
 function verificaLetraEscolhida(letra) {
+    document.getElementById("l" + letra).disabled = true
     if(tentativas > 0) {
         mudarStyleLetra("l" + letra) 
         comparaListas(letra)
     }
+    palavraTela()
 }
 
 function mudarStyleLetra(tecla) {
@@ -152,10 +154,16 @@ function mudarStyleLetra(tecla) {
 }
 
 function comparaListas(letra) {
-    const posi = palavraSorteada.indexOf(letra)
+    const posi = palavraSorteada.indexOf(letra)        
+    const erros = document.getElementById("erros")
     if (posi < 0) {
         tentativas--
-        
+        errosForca()
+        erros.innerHTML = erros.innerHTML + letra
+
+        if(tentativas == 0){
+            modalOn()
+        }
     }
     else {
         for(i = 0; i < palavraSorteada.length; i++){
@@ -164,6 +172,56 @@ function comparaListas(letra) {
             }
         }
     }
+
+    let vitoria = true
+
+    for(i=0; i < palavraSorteada.length; i++) {
+        if(palavraSorteada[i] != listaDinamica[i]) {
+            vitoria = false;
+        }
+    }
+
+    if(vitoria == true) {
+        //mensagem na tela
+        tentativas = 0
+    }
 }
 
 
+function errosForca() {
+    switch(tentativas) {
+        case 5: 
+        document.getElementById("forca").style.background = "url('./imgs/erros/morte (1).png')"
+        break;
+
+        case 4: 
+        document.getElementById("forca").style.background = "url('./imgs/erros/morte (2).png')"
+        break;
+
+        case 3: 
+        document.getElementById("forca").style.background = "url('./imgs/erros/morte (3).png')"
+        break;
+
+        case 2: 
+        document.getElementById("forca").style.background = "url('./imgs/erros/morte (4).png')"
+        break;
+
+        case 1: 
+        document.getElementById("forca").style.background = "url('./imgs/erros/morte (5).png')"
+        break;
+
+        case 0:
+            document.getElementById("forca").style.background = "url('./imgs/erros/morte (6).png')"
+            break;
+
+        default:
+            document.getElementById("forca").style.background = "url('./imgs/erros/morte.png')"
+            break;
+    }
+}
+
+function modalOn(){
+    $("#myModal").modal({
+        show:true
+    })
+}
