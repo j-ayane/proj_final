@@ -55,6 +55,18 @@ header {
     margin-left: 5px;
 }
 
+.letras {
+    border-bottom: 1px solid white;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.letrasEsp {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
 #categoria {
     font-size: 30px;
 }
@@ -87,4 +99,8 @@ header {
 #erros {
     margin-top: 20px;
     font-size: 30px;
+}
+
+.modal-content {
+  color: black;
 }
