@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 /* Reset */
 * {
@@ -9,7 +9,7 @@
 body {
     background-color: black;
     color: white;
-    font-family: 'Nanum Brush Script', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 header {
@@ -22,6 +22,7 @@ header {
 }
 
 .div1{
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,6 +30,7 @@ header {
 }
 
 .div2 {
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,16 +45,10 @@ header {
 }
 
 #palavra {
-    font-size: 45px;
+    font-size: 30px;
     margin-bottom: 16px;
     display: flex;
     justify-content: center;
-}
-
-.letras {
-    border-bottom: 1px solid white;
-    margin-right: 5px;
-    margin-left: 5px;
 }
 
 .letras {
@@ -68,7 +64,7 @@ header {
 
 
 #categoria {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 #forca-img {
@@ -91,16 +87,15 @@ header {
 #forca {
     background-image: url(../imgs/erros/morte.png);
     background-repeat: no-repeat;
-    background-size: 200px 200px;
     width: 200px;
     height: 200px;
 }
 
 #erros {
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .modal-content {
-  color: black;
+    color: black;
 }
