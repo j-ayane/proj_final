@@ -87,7 +87,7 @@ const palavras = [
         categoria: "ATOR/ATRIZ"
     },
     palavras21 = {
-        nome: "PICA-PAU",
+        nome: "PICA PAU",
         categoria: "DESENHO/FILME"
     },
     palavras22 = {
@@ -130,10 +130,21 @@ function palavraTela() {
 
     for (i = 0; i < palavraSorteada.length; i++){
         if (listaDinamica[i] == undefined) {
+          if(palavraSorteada[i] == " "){
+            listaDinamica[i] = " "
+            palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEsp'>"+ listaDinamica[i] + "</div>"
+          }
+          else {
             listaDinamica[i] = "&nbsp;"
             palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>"+ listaDinamica[i] + "</div>"
+          }
         } 
         else {
+          if(palavraSorteada[i] == " "){
+            listaDinamica[i] = " "
+            palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEsp'>"+ listaDinamica[i] + "</div>"
+          }
+          
             palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>"+ listaDinamica[i] + "</div>"
         }
     }
@@ -162,7 +173,7 @@ function comparaListas(letra) {
         erros.innerHTML = erros.innerHTML + letra
 
         if(tentativas == 0){
-            modalOn()
+            modalOn("Não foi dessa vez...", "Mas sempre podemos tentar de novo! <br> A palavra era: " + palavraSorteada)
         }
     }
     else {
@@ -182,7 +193,9 @@ function comparaListas(letra) {
     }
 
     if(vitoria == true) {
-        //mensagem na tela
+        
+        modalOn("PARABÉNS!!", "Você venceu! Até que foi divertido, não acha?")
+        
         tentativas = 0
     }
 }
@@ -220,8 +233,20 @@ function errosForca() {
     }
 }
 
-function modalOn(){
-    $("#myModal").modal({
+function modalOn(titulo, mensagem){
+  
+  let modalTitulo = document.getElementById("exampleModalLabel")
+   modalTitulo.innerText = titulo
+   
+   let modalBody = document.getElementById("modalBody")
+   modalBody.innerHTML =  mensagem
+   
+    $("#myModal"  ).modal({
         show:true
     })
 }
+
+let reinicia = document.querySelector("#reiniciar")
+reinicia.addEventListener("click", function(){
+  location.reload();
+});
