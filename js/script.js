@@ -4,6 +4,7 @@ let palavraCategoria;
 let palavraSorteada;
 let tentativas = 6;
 
+// Lista de palavras
 
 const palavras = [
     palavras01 = {
@@ -108,19 +109,21 @@ const palavras = [
     },
 ]
 
+// Chama as funções que iniciam o jogo
 criarPalavraSecreta()
 palavraTela()
 
+// Função pra sortear palavra secreta
 function criarPalavraSecreta() {
     const indexPalavra = parseInt(Math.random() * palavras.length)
 
     palavraSorteada = palavras[indexPalavra].nome;
     palavraCategoria = palavras[indexPalavra].categoria;
 
-    console.log(palavraSorteada)
-    console.log(palavraCategoria)
 }
 
+
+//Transfere a palavra sorteada para o HTML
 function palavraTela() {
     const categoria = document.getElementById("categoria");
     categoria.innerHTML = palavraCategoria;
@@ -128,9 +131,10 @@ function palavraTela() {
     const palavraTela = document.getElementById("palavra");
     palavraTela.innerHTML = "";
 
-    for (i = 0; i < palavraSorteada.length; i++){
-        if (listaDinamica[i] == undefined) {
-          if(palavraSorteada[i] == " "){
+    //cria uma lista com o tamanho da palavra sorteada
+    for (i = 0; i < palavraSorteada.length; i++){ 
+        if (listaDinamica[i] == undefined) { 
+          if(palavraSorteada[i] == " "){ //verifica se é uma palavra com espaço
             listaDinamica[i] = " "
             palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEsp'>"+ listaDinamica[i] + "</div>"
           }
@@ -150,8 +154,9 @@ function palavraTela() {
     }
 }
 
+
 function verificaLetraEscolhida(letra) {
-    document.getElementById("l" + letra).disabled = true
+    document.getElementById("l" + letra).disabled = true //desabilita o botão no HTML
     if(tentativas > 0) {
         mudarStyleLetra("l" + letra) 
         comparaListas(letra)
@@ -159,40 +164,40 @@ function verificaLetraEscolhida(letra) {
     palavraTela()
 }
 
-function mudarStyleLetra(tecla) {
+function mudarStyleLetra(tecla) { //função p mudar CSS do botão
     document.getElementById(tecla).style.background = "#757575"
     document.getElementById(tecla).style.color = "#ffffff"
 }
 
-function comparaListas(letra) {
+function comparaListas(letra) { //função verifica se 'letra' contém na palavra sorteada
     const posi = palavraSorteada.indexOf(letra)        
     const erros = document.getElementById("erros")
-    if (posi < 0) {
+    if (posi < 0) { //se for menor que zero = não existe na palavra
         tentativas--
         errosForca()
-        erros.innerHTML = erros.innerHTML + letra
+        erros.innerHTML = erros.innerHTML + letra //adiciona as letras erradas na tela
 
         if(tentativas == 0){
             modalOn("Não foi dessa vez...", "Mas sempre podemos tentar de novo! <br> A palavra era: " + palavraSorteada)
         }
     }
-    else {
+    else { //caso a letra selecionada esteja na palavra
         for(i = 0; i < palavraSorteada.length; i++){
             if(palavraSorteada[i] == letra){
-                listaDinamica[i] = letra
+                listaDinamica[i] = letra //adiciona a letra em sua respectiva posição na lista dinâmica
             }
         }
     }
 
     let vitoria = true
 
-    for(i=0; i < palavraSorteada.length; i++) {
+    for(i=0; i < palavraSorteada.length; i++) { //laço pra verificar se os arrays estão iguais
         if(palavraSorteada[i] != listaDinamica[i]) {
             vitoria = false;
         }
     }
 
-    if(vitoria == true) {
+    if(vitoria == true) { 
         
         modalOn("PARABÉNS!!", "Você venceu! Até que foi divertido, não acha?")
         
@@ -201,7 +206,7 @@ function comparaListas(letra) {
 }
 
 
-function errosForca() {
+function errosForca() { //função pra mudar imagem da forca no CSS
     switch(tentativas) {
         case 5: 
         document.getElementById("forca").style.background = "url('./imgs/erros/morte (1).png')"
@@ -233,7 +238,7 @@ function errosForca() {
     }
 }
 
-function modalOn(titulo, mensagem){
+function modalOn(titulo, mensagem){ //Modifica o modal de acordo com a situação de vitória ou perda
   
   let modalTitulo = document.getElementById("exampleModalLabel")
    modalTitulo.innerText = titulo
@@ -246,7 +251,7 @@ function modalOn(titulo, mensagem){
     })
 }
 
-let reinicia = document.querySelector("#reiniciar")
+let reinicia = document.querySelector("#reiniciar") //botão pra reiniciar o jogo
 reinicia.addEventListener("click", function(){
   location.reload();
 });
