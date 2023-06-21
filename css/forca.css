@@ -14,11 +14,16 @@ body {
 
 header {
     height: 150px;
-    display: flex;
+    display: none;
     font-size: 30px;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid white;
+}
+
+.ccontainer {
+    display: flex;
+    flex-direction: column;
 }
 
 .div1{
@@ -39,13 +44,13 @@ header {
 
 .teclas button{
     margin: 2px;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     border-radius: 5px;
 }
 
 #palavra {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 16px;
     display: flex;
     justify-content: center;
@@ -78,6 +83,7 @@ header {
 }
 
 #teclado {
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,14 +132,18 @@ header {
     font-size: 16px;
   }
   
-@media (max-width: 420) {
+@media (min-width: 600px) {
 
-    header{
-        display: none;
+    header {
+        display: flex;
     }
 
-    .ccontainer {
-        display: flex;
-        flex-direction: column;
+    .teclas button {
+        width: 35px;
+        height: 35px;
+    }
+
+    #palavra {
+        font-size: 30px;
     }
 }
