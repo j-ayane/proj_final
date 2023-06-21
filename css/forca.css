@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 /* Reset */
 * {
@@ -87,6 +87,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 #forca {
@@ -130,6 +131,13 @@ header {
     padding: 12px 20px;
     font-size: 16px;
   }
+
+@media (min-width: 0px) and (max-width: 364px) {
+    .teclas button {
+        width: 25px;
+        height: 25px;
+    }
+}
   
 @media (min-width: 600px) {
 
