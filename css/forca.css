@@ -146,4 +146,9 @@ header {
     #palavra {
         font-size: 30px;
     }
+
+    .row {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
 }
