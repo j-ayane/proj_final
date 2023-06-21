@@ -178,7 +178,7 @@ function comparaListas(letra) { //função verifica se 'letra' contém na palavr
         erros.innerHTML = erros.innerHTML + letra //adiciona as letras erradas na tela
 
         if(tentativas == 0){
-            modalOn("Não foi dessa vez...", "Mas sempre podemos tentar de novo! <br> A palavra era: " + palavraSorteada)
+            popup("Não foi dessa vez...", "Mas sempre podemos tentar de novo! <br> A palavra era: " + palavraSorteada)
         }
     }
     else { //caso a letra selecionada esteja na palavra
@@ -199,7 +199,7 @@ function comparaListas(letra) { //função verifica se 'letra' contém na palavr
 
     if(vitoria == true) { 
         
-        modalOn("PARABÉNS!!", "Você venceu! Até que foi divertido, não acha?")
+        popup("PARABÉNS!!", "Você venceu! Até que foi divertido, não acha?")
         
         tentativas = 0
     }
@@ -238,20 +238,16 @@ function errosForca() { //função pra mudar imagem da forca no CSS
     }
 }
 
-function modalOn(titulo, mensagem){ //Modifica o modal de acordo com a situação de vitória ou perda
-  
-  let modalTitulo = document.getElementById("exampleModalLabel")
-   modalTitulo.innerText = titulo
-   
-   let modalBody = document.getElementById("modalBody")
-   modalBody.innerHTML =  mensagem
-   
-    $("#myModal"  ).modal({
-        show:true
-    })
-}
-
 let reinicia = document.querySelector("#reiniciar") //botão pra reiniciar o jogo
 reinicia.addEventListener("click", function(){
   location.reload();
 });
+
+function reiniciarJogo() {
+    window.location.reload();
+  }
+
+function popup(mensagem) {
+    document.querySelector("#mensagem").innerHTML = mensagem;
+    document.querySelector(".popup-container").style.display = "flex";
+  }
