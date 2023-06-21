@@ -44,8 +44,8 @@ header {
 
 .teclas button{
     margin: 2px;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     border-radius: 5px;
 }
 
@@ -136,11 +136,6 @@ header {
 
     header {
         display: flex;
-    }
-
-    .teclas button {
-        width: 35px;
-        height: 35px;
     }
 
     #palavra {
