@@ -178,7 +178,7 @@ function comparaListas(letra) { //função verifica se 'letra' contém na palavr
         erros.innerHTML = erros.innerHTML + letra //adiciona as letras erradas na tela
 
         if(tentativas == 0){
-            popup("Não foi dessa vez...", "Mas sempre podemos tentar de novo! <br> A palavra era: " + palavraSorteada)
+            popup("Não foi dessa vez...<br> A palavra era: " + palavraSorteada)
         }
     }
     else { //caso a letra selecionada esteja na palavra
@@ -199,7 +199,7 @@ function comparaListas(letra) { //função verifica se 'letra' contém na palavr
 
     if(vitoria == true) { 
         
-        popup("PARABÉNS!!", "Você venceu! Até que foi divertido, não acha?")
+        popup("PARABÉNS!! Você venceu!")
         
         tentativas = 0
     }
