@@ -132,6 +132,8 @@ header {
     font-size: 16px;
   }
 
+/*  -- Isabela --  */
+
 @media (min-width: 0px) and (max-width: 364px) {
     .teclas button {
         width: 25px;
